@@ -1,0 +1,61 @@
+.filePlace {
+    flex: 1 0 300px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    border: 2px dashed #6e6e6e;
+    border-radius: 30px;
+    overflow: hidden;
+    height: 100%;
+
+    &.enter {
+        border: 2px dashed #cccccc;
+    }
+
+    &.populated {
+        border: 2px solid #6e6e6e;
+    }
+
+    .dropZone {
+        height: 100%;
+        width: 100%;
+
+        .content {
+            cursor: pointer;
+            border: none;
+            background-color: transparent;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            width: 100%;
+            .icon,
+            .par,
+            .notice {
+                pointer-events: none;
+            }
+
+            .icon {
+                width: 50px;
+                height: 50px;
+                display: inline-block;
+            }
+
+            .par {
+                font-size: 18px;
+                font-weight: 600;
+                display: inline-block;
+                margin: 0;
+            }
+
+            .notice {
+                font-size: 14px;
+                font-weight: 400;
+                margin: 0;
+            }
+        }
+    }
+}

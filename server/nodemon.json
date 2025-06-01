@@ -1,0 +1,4 @@
+{
+  "watch": ["server.js", "ocr-bridge.js"], 
+  "ignore": ["uploads/*"]
+}
