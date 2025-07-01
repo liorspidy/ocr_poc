@@ -73,7 +73,9 @@ const FilePlace = () => {
     const processFileInServer = useCallback(async () => {
         if (!currentFile) return;
 
-        const url = "http://localhost:8080/process";
+        const url = "http://localhost:80/process";
+        // const url = "http://44.208.43.147/process";
+
         const formData = new FormData();
         formData.append("file", currentFile);
 

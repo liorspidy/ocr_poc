@@ -2,8 +2,10 @@ const { spawn } = require('child_process');
 const path = require('path');
 
 function runPythonOCR(filePath) {
-  const scriptPath = path.resolve('/Users/user/Documents/Elad/OCR/main.py');
-  const pythonPath = path.resolve('/Users/user/Documents/Elad/OCR/.venv/bin/python');
+  const scriptPath = path.resolve('/Users/user/Documents/Elad/AI/OCR/main.py');
+  const pythonPath = path.resolve('/Users/user/Documents/Elad/AI/OCR/.venv/bin/python');
+  // const scriptPath = path.resolve('/home/ubuntu/app/OCR/main.py');
+  // const pythonPath = path.resolve('/home/ubuntu/app/OCR/venv/bin/python');
   const python = spawn(pythonPath, [scriptPath, filePath]);
 
   let output = '';

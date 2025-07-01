@@ -16,12 +16,25 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 const app = express();
-const PORT = 8080;
+const PORT = 80;
+const DOMAIN = '0.0.0.0'
+
+const allowedOrigins = [
+  "http://pama-poc-dev-poc-s3-static-site.s3-website-us-east-1.amazonaws.com/",
+  "http://localhost:5173"
+];
 
 app.use(
-    cors({
-        origin: "http://localhost:5173",
-    })
+  cors({
+    origin: function (origin, callback) {
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      } else {
+        return callback(new Error("Not allowed by CORS"));
+      }
+    },
+  })
 );
 
 app.post("/process", upload.single("file"), async (req, res) => {
@@ -67,6 +80,7 @@ app.post("/process", upload.single("file"), async (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-    console.log(`🚀 Server is running on http://localhost:${PORT}`);
+app.listen(PORT, DOMAIN, () => {
+  console.log(`🚀 Server is running on http://${DOMAIN}:${PORT}`);
 });
+
